@@ -1,0 +1,21 @@
+profile = []
+def signin(name, number, address) :
+    p = (name, number, address)
+    profile.append(p)
+    print(name, number, address)
+    print(profile)
+    Correct_detais = input("Are these details correct?:")
+    if Correct_detais == "yes":
+        print("menu")
+
+print("------------------------")
+print('|                       |')
+print('|    Welcome to the     |')
+print('|    Delivery App!      |')
+print('|                       |')
+print("------------------------")
+print("Please enter your details to make an order!")
+name = input("Please enter your first and last name:")
+number = input ("Please enter your number:")
+address = input("Please enter your address")
+signin(name, number, address)
