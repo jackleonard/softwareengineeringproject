@@ -17,7 +17,7 @@ print("------------------------")
 print("Please enter your details to make an order!")
 name = input("Please enter your first and last name:")
 number = input ("Please enter your number:")
-address = input("Please enter your address")
+address = input("Please enter your address:")
 signin(name, number, address)
 
 def Ordering():
@@ -78,6 +78,7 @@ def Ordering():
         # Adding each price to the total for the order
 
 
+
     else:
         print ("You have ordered", Order)
         # If the user does not want to continue the Order will print
@@ -86,9 +87,22 @@ def Ordering():
         # User inputs confirms if they want to confirm the order
 
         if Counter == 1:
-            print("Your Order has been confirmed and it will cost £" ,Total)
+            print("Your Order will cost £" ,Total)
 
         else:
             print("Please place your order again")
+Ordering()
 
+payment_type = ""
+card_number = ""
+def payment():
+    print("Please select your payment method")
+    payment_type = input("Card/Cash: ")
+    if payment_type == "Card":
+        card_number == input("Please input card number to complete online payment: ")
+        print("Payment successful, you order will be delivered in approxiamtely 30 minutes")
+    else:
+        print("Please have the cash ready at the door for the delivery driver ")
+        
+payment()
 
