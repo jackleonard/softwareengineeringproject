@@ -1,3 +1,41 @@
+#Delivery App - Lauren Igoe, Patrick Tobin, Jack Leonard 
+import pandas
+from pandas import *
+
+################################ Menu + Orders Data Store 
+# importing module
+from pandas import *
+
+# reading CSV file
+data = read_csv("food_menu.csv")
+data2 = read_csv("past_orders.csv")
+
+# converting column data to list
+Food = data['Food'].tolist()
+Price = data['Price '].tolist()
+
+
+
+# printing list data
+print('Food:', Food)
+print('Prices:', Price )
+
+Menu = dict(zip(Food, Price))
+#print(Menu)
+
+
+################################
+
+
+############################### USer Profile 
+
+class user:
+    pass
+
+user1 = user()
+
+
+
 profile = []
 def signin(name, number, address) :
     p = (name, number, address)
@@ -7,6 +45,11 @@ def signin(name, number, address) :
     Correct_detais = input("Are these details correct?:")
     if Correct_detais == "yes":
         print("Thank you! Details confirmed")
+
+
+
+
+################################# App Init 
 
 print("------------------------")
 print('|                       |')
@@ -19,12 +62,21 @@ name = input("Please enter your first and last name:")
 number = input ("Please enter your number:")
 address = input("Please enter your address:")
 signin(name, number, address)
+user1.name = name 
+user1.number = number 
+user1.address = address
+
+
+################################# Ordering Func 
 
 def Ordering():
-    Menu = {"Burger": 2.50, "Fries": 2.00, "Pizza": 10, "Coke": 2.30, "Fanta": 2.20, "Cookies": 1.50}
     # Dictionary containing the items on the menu and their correpsonding prices
 
-    print("Check out the menu: ", Menu)
+    print("Check out the menu: ")
+    print('─' * 10)
+    for food, price in Menu.items():
+      print('{} | €{}'.format(food, price))
+    print('─' * 10)
 
 
 
@@ -58,6 +110,7 @@ def Ordering():
 
             Order.append(Selection)
             print(Order)
+            
 
             Counter = Decision.get(input("Continue?(Yes/No) "))
             # Adds user input to the empty list and prints the list
@@ -91,6 +144,7 @@ def Ordering():
 
         else:
             print("Please place your order again")
+    user1.selection = Selection
 Ordering()
 
 payment_type = ""
@@ -105,4 +159,12 @@ def payment():
         print("Please have the cash ready at the door for the delivery driver ")
         
 payment()
+
+
+############ Save it all to a datestore 
+with open('past_orders.csv','a') as fd:
+  fd.write(user1.name + user1.selection)
+
+
+
 
